@@ -1,0 +1,25 @@
+services:
+  workspace:
+    build:
+      context: "."
+      args:
+        - "UID=${DOCKER_UID:-1000}"
+        - "GID=${DOCKER_GID:-1000}"
+    image: cenet:latest
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu, utility, compute]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIE=all
+    shm_size: '14gb'
+    volumes:
+      - ./:/source
+      - /media/s0001645/PandoraBox11/dataset/kitti_dataset:/data 
+      # - /run/media/renesat/PandoraBox/dataset/kitti_dataset:/source/data
+      # timeexit
+      - /etc/localtime:/etc/localtime:ro

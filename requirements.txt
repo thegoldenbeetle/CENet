@@ -1,0 +1,11 @@
+numpy
+opencv-python
+torch==1.13.1
+torchvision
+pyyaml
+scipy
+hdbscan
+matplotlib
+tensorboard
+tqdm
+
