@@ -8,4 +8,6 @@ hdbscan
 matplotlib
 tensorboard
 tqdm
+dbscan
+scikit-learn
 
